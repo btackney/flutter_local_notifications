@@ -227,6 +227,7 @@ class AndroidFlutterLocalNotificationsPlugin
     RepeatInterval repeatInterval, {
     AndroidNotificationDetails notificationDetails,
     String payload,
+    int repeatIntervalCustomSetTimeInMilliseconds,
     bool androidAllowWhileIdle = false,
   }) async {
     validateId(id);
@@ -239,6 +240,8 @@ class AndroidFlutterLocalNotificationsPlugin
       'body': body,
       'calledAt': DateTime.now().millisecondsSinceEpoch,
       'repeatInterval': repeatInterval.index,
+      'repeatIntervalCustomSetTimeInMilliseconds': 
+      repeatIntervalCustomSetTimeInMilliseconds ?? 180000,
       'platformSpecifics': serializedPlatformSpecifics,
       'payload': payload ?? '',
     });

@@ -317,6 +317,7 @@ class FlutterLocalNotificationsPlugin {
     RepeatInterval repeatInterval,
     NotificationDetails notificationDetails, {
     String payload,
+    int repeatIntervalCustomSetTimeInMilliseconds,
     bool androidAllowWhileIdle = false,
   }) async {
     if (_platform.isAndroid) {
@@ -325,6 +326,8 @@ class FlutterLocalNotificationsPlugin {
           ?.periodicallyShow(id, title, body, repeatInterval,
               notificationDetails: notificationDetails?.android,
               payload: payload,
+              repeatIntervalCustomSetTimeInMilliseconds: 
+              repeatIntervalCustomSetTimeInMilliseconds,
               androidAllowWhileIdle: androidAllowWhileIdle);
     } else if (_platform.isIOS) {
       await resolvePlatformSpecificImplementation<

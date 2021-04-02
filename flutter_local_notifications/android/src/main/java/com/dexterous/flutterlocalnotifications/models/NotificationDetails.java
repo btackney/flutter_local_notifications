@@ -26,6 +26,7 @@ public class NotificationDetails {
     private static final String MILLISECONDS_SINCE_EPOCH = "millisecondsSinceEpoch";
     private static final String CALLED_AT = "calledAt";
     private static final String REPEAT_INTERVAL = "repeatInterval";
+    private static final String REPEAT_INTERVAL_CUSTOM_SET_TIME_IN_MILLISECONDS = "repeatIntervalCustomSetTimeInMilliseconds";
     private static final String REPEAT_TIME = "repeatTime";
     private static final String PLATFORM_SPECIFICS = "platformSpecifics";
     private static final String AUTO_CANCEL = "autoCancel";
@@ -165,6 +166,7 @@ public class NotificationDetails {
     public Long when;
     public Boolean fullScreenIntent;
     public String shortcutId;
+    public Integer repeatIntervalCustomSetTimeInMilliseconds;
 
 
 
@@ -190,6 +192,9 @@ public class NotificationDetails {
         }
         if (arguments.containsKey(REPEAT_INTERVAL)) {
             notificationDetails.repeatInterval = RepeatInterval.values()[(Integer) arguments.get(REPEAT_INTERVAL)];
+        }
+        if (arguments.containsKey(REPEAT_INTERVAL_CUSTOM_SET_TIME_IN_MILLISECONDS)) {
+            notificationDetails.repeatIntervalCustomSetTimeInMilliseconds = (Integer) arguments.get(REPEAT_INTERVAL_CUSTOM_SET_TIME_IN_MILLISECONDS);
         }
         if (arguments.containsKey(REPEAT_TIME)) {
             @SuppressWarnings("unchecked")

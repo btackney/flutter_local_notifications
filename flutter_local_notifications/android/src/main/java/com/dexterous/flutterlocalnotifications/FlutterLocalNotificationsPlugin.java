@@ -382,6 +382,9 @@ public class FlutterLocalNotificationsPlugin implements MethodCallHandler, Plugi
     private static long calculateRepeatIntervalMilliseconds(NotificationDetails notificationDetails) {
         long repeatInterval = 0;
         switch (notificationDetails.repeatInterval) {
+            case EveryCustomSetTimeInMilliseconds:
+                repeatInterval = notificationDetails.repeatIntervalCustomSetTimeInMilliseconds;
+                break;
             case EveryMinute:
                 repeatInterval = 60000;
                 break;
